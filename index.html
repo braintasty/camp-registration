@@ -3,12 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>『2026小小背包客夏令營』報名表單</title>
+<title>『2026小小背包客夏令營』報名表單 | 童心毓樂探索基地</title>
+<meta name="description" content="童心毓樂探索基地官方夏令營報名表單。未經授權，禁止複製或仿冒。">
+<meta name="author" content="童心毓樂探索基地 Braintasty">
+<meta name="copyright" content="© 2026 童心毓樂探索基地 Braintasty. All rights reserved.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎒</text></svg>">
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&family=Noto+Sans+TC:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { font-family: 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif; font-weight: 400; -webkit-text-size-adjust: 100%; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  body { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
+  input, textarea, [contenteditable] { -webkit-user-select: text; -moz-user-select: text; -ms-user-select: text; user-select: text; }
 </style>
 </head>
 <body>
@@ -17,6 +22,18 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.9/babel.min.js"></script>
+<script>
+document.addEventListener("contextmenu", function(e) { e.preventDefault(); });
+document.addEventListener("keydown", function(e) {
+  if (e.key === "F12") { e.preventDefault(); }
+  if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === "I" || e.key === "i" || e.key === "J" || e.key === "j")) { e.preventDefault(); }
+  if ((e.ctrlKey || e.metaKey) && (e.key === "U" || e.key === "u")) { e.preventDefault(); }
+  if ((e.ctrlKey || e.metaKey) && (e.key === "S" || e.key === "s")) { e.preventDefault(); }
+});
+console.log("%c⚠️ 警告", "color:red;font-size:40px;font-weight:bold;");
+console.log("%c本表單為「童心毓樂探索基地」官方版權所有。未經授權複製、修改或仿冒本表單內容，將依著作權法追究法律責任。", "color:red;font-size:16px;");
+console.log("%c© 2026 童心毓樂探索基地 Braintasty. All rights reserved.", "color:gray;font-size:12px;");
+</script>
 <script type="text/babel">
 const { useState, useRef, useCallback, useEffect } = React;
 
@@ -147,6 +164,15 @@ const calcFee = (f) => {
   return { total: Math.max(0, total), details, warning, notFull };
 };
 
+
+const CopyrightBanner = () => (
+  <div style={{textAlign:"center",padding:"10px 16px",margin:"12px 0 0",fontSize:11,color:"#b8a0d0",lineHeight:1.6}}>
+    <p>本表單為<b>童心毓樂探索基地</b>官方報名表單，僅限於本官方網站使用。</p>
+    <p>未經授權複製、仿冒本表單內容，將依法追究法律責任。</p>
+    <p style={{marginTop:4}}>官方唯一報名網址：<a href="https://braintasty.github.io/camp-registration/" style={{color:"#6B4FA0",fontWeight:600}}>braintasty.github.io/camp-registration</a></p>
+  </div>
+);
+
 function App() {
   const [pg, setPg] = useState(0);
   const [err, setErr] = useState({});
@@ -261,10 +287,15 @@ function App() {
     <div style={{background:"linear-gradient(180deg,#F4EEF9 0%,#EBE3F4 50%,#F8F5FC 100%)",minHeight:"100vh"}}>
       <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&family=Noto+Sans+TC:wght@400;500;600;700;900&display=swap" rel="stylesheet"/>
       <div ref={topRef}/>
-      <div style={{maxWidth:700,margin:"0 auto",padding:"18px 14px 40px",fontFamily:"'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif",color:"#333"}}>
+      <div style={{maxWidth:700,margin:"0 auto",padding:"18px 14px 40px",fontFamily:"'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif",color:"#333",position:"relative"}}>
+        <div aria-hidden="true" style={{position:"fixed",top:"50%",left:"50%",transform:"translate(-50%,-50%) rotate(-30deg)",fontSize:100,fontWeight:900,color:"rgba(107,79,160,0.03)",whiteSpace:"nowrap",pointerEvents:"none",zIndex:0,userSelect:"none"}}>童心毓樂探索基地</div>
 
         <div style={{background:"#fff",borderRadius:14,padding:"26px 22px 18px",marginBottom:20,borderTop:"5px solid #6B4FA0",boxShadow:"0 3px 16px rgba(107,79,160,.08)"}}>
+          <div style={{display:"flex",justifyContent:"center",marginBottom:10}}>
+            <img src={LOGO} alt="童心毓樂探索基地" style={{width:56,height:56,borderRadius:"50%",objectFit:"cover",border:"2px solid rgba(107,79,160,.2)",boxShadow:"0 2px 8px rgba(107,79,160,.12)"}}/>
+          </div>
           <h1 style={{textAlign:"center",fontSize:26,fontWeight:900,color:"#4A2D7A",margin:"0 0 6px",letterSpacing:1.5,lineHeight:1.35}}>『2026小小背包客夏令營』<br/>報名表單</h1>
+          <p style={{textAlign:"center",fontSize:11,color:"#b8a0d0",margin:"2px 0 0"}}>童心毓樂探索基地 Braintasty ©</p>
           {pg<6&&<p style={{...pr,marginTop:12,textAlign:"justify"}}>從小總是讀課本上的知識，卻沒有機會去印證。所以我們相信，見聞是孩子成長與成熟的一環。能否在旅途中叫得出動物、植物的名字並不重要，更重要的是要開發孩子的觀察力與好奇心，讓孩子明白原來在課本之外，還有『隱藏版』的知識與趣味。除了出國、遊樂園，我們還有更好的選擇！每到一個景點，我們帶著孩子一起找出屬於自己的答案，以樂趣驅動學習，用陪伴深化學習，一場不一樣的小旅行，學習更立體更有趣。當孩子用自己的雙腳走出去、用自己的雙眼看世界，所帶走的紀念品，將會是一輩子都受用無形的資產。</p>}
         </div>
 
@@ -555,7 +586,7 @@ function App() {
 
         {pg===7&&<Card><div style={{textAlign:"center",padding:"36px 16px"}}><div style={{fontSize:44,marginBottom:10}}>🙏</div><p style={{fontSize:17,fontWeight:700,color:"#4A2D7A"}}>感謝您的閱讀！</p><p style={{color:"#777",fontSize:14.5}}>期待下次再相見！</p><button onClick={reset} style={{...bp,marginTop:18}}>返回首頁</button></div></Card>}
 
-        <Footer/>
+        <CopyrightBanner/><Footer/>
       </div>
     </div>
   );
