@@ -16,3 +16,5 @@ GitHub Pages
 - index.html 必須位於網站根目錄，不能只上傳 ZIP 而不解壓縮。
 - 請勿只移動 index.html；圖片與 assets 資料夾必須一起保留。
 - 報名表單會透過網路送往既有的 Google Apps Script，因此使用者需保持網路連線。
+- 送出後可顯示安全版確認卡、複製摘要、列印或儲存 PDF，並開啟 Email 備份。
+- 自動寄出確認信需要在既有 Google Apps Script 加入隨附的確認信程式；該管理用程式不放在公開網站 ZIP 內。
